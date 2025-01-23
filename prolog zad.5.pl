@@ -23,7 +23,7 @@ preferencje(uzytkownik2, przygodowa).
 preferencje(uzytkownik3, poezja).
     
 zmien_ocene(X,Y,Z) :- ocena(X,Y,_), retract(ocena(X,Y,_)), assertz(ocena(X,Y,Z)), write(ocena(X,Y,Z)).
-% ?-zmien_ocene(uzytkownik1, 'Pan Tadeusz', 2) wynik: ocena(uzytkownik1,Pan Tadeusz,2),true
+% ?- zmien_ocene(uzytkownik3, 'Pan Tadeusz', 5). wynik: ocena(uzytkownik3,Pan Tadeusz,5) true, ?- ocena(uzytkownik3,'Pan Tadeusz', X). wynik: X = 5.
 
 
 polecane_ksiazki(X,Y) :- preferencje(X,Y), findall(Ksiazka, (ksiazka(Ksiazka, _,Y), ocena(X, Ksiazka, Ocena), Ocena >= 4), Polecane), write(Polecane).
